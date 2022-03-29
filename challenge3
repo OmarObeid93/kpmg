@@ -1,0 +1,37 @@
+<script>
+const myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+var input = window.prompt("Enter the key:");
+var inputArray = input.split('/');
+
+//const gloveBoxContents = myStorage.car.inside["glove box"];
+
+//const gloveBoxContents2 = myStorage.inputArray[0].inputArray[1].inputArray[2];
+
+//console.log(gloveBoxContents2);
+//document.write(input);
+//document.write(inputArray[1]);
+//document.write(gloveBoxContents);
+
+var current = myStorage;
+for (var index in inputArray) {
+        var key = inputArray[index];
+        if (key in current)
+            current = current[key];
+        else
+            break;
+    }
+    document.write(current);
+var currentString =  Object.entries(current).map(x=>x.join(":")).join("\n");
+	document.write(currentString);
+</script>
